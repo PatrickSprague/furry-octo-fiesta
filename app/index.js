@@ -2,7 +2,8 @@ import clock from "clock";
 import document from "document";
 import { preferences } from "user-settings";
 import * as util from "../common/utils";
-``
+import * as messaging from "messaging";
+
 // Update the clock every minute
 clock.granularity = "minutes";
 
@@ -23,3 +24,11 @@ clock.ontick = (evt) => {
   let mins = util.zeroPad(today.getMinutes());
   myLabel.text = `${hours}:${mins}`;
 }
+
+// let myElement = document.getElementById("myElement");
+
+messaging.peerSocket.addEventListener("message", (evt) => {
+  if (evt && evt.data && evt.data.key === "color") {
+    myLabel.style.fill = evt.data.value;
+  }
+});
