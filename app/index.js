@@ -8,7 +8,8 @@ import * as messaging from "messaging";
 clock.granularity = "minutes";
 
 // Get a handle on the <text> element
-const myLabel = document.getElementById("myLabel");
+const timeLabel = document.getElementById("timeLabel");
+const dateLabel = document.getElementById("dateLabel");
 
 // Update the <text> element every tick with the current time
 clock.ontick = (evt) => {
@@ -22,13 +23,21 @@ clock.ontick = (evt) => {
     hours = util.zeroPad(hours);
   }
   let mins = util.zeroPad(today.getMinutes());
-  myLabel.text = `${hours}:${mins}`;
-}
 
-// let myElement = document.getElementById("myElement");
+  let date = util.zeroPad(today.getDate());
+  
+  const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOT", "DEC"]
+  let monthName = months[today.getMonth()];
+  
+  const days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  let dayName = days[today.getDay()];
+
+  timeLabel.text = `${hours}:${mins}`;
+  dateLabel.text = `${dayName}, ${monthName} ${date}`;
+}
 
 messaging.peerSocket.addEventListener("message", (evt) => {
   if (evt && evt.data && evt.data.key === "color") {
-    myLabel.style.fill = evt.data.value;
+    timeLabel.style.fill = evt.data.value;
   }
 });
