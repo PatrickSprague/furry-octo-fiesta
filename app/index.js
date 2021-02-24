@@ -23,7 +23,6 @@ clock.ontick = (evt) => {
     hours = util.zeroPad(hours);
   }
   let mins = util.zeroPad(today.getMinutes());
-
   let date = util.zeroPad(today.getDate());
   
   const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOT", "DEC"]
@@ -37,7 +36,9 @@ clock.ontick = (evt) => {
 }
 
 messaging.peerSocket.addEventListener("message", (evt) => {
-  if (evt && evt.data && evt.data.key === "color") {
+  if (evt && evt.data && evt.data.key === "timeColor") {
     timeLabel.style.fill = evt.data.value;
+  } else if (evt && evt.data && evt.data.key === "dateColor") {
+    dateLabel.style.fill = evt.data.value;
   }
 });
