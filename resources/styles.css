@@ -2,12 +2,22 @@
   viewport-fill: black;
 }
 
-#myLabel {
-  font-size: 100;
+#timeLabel {
+  font-size: 125;
   font-family: System-Light;
   text-length: 32;
-  text-anchor: middle;
-  x: 50%;
+  text-anchor: end;
+  x: 99%;
   y: 50%+40;
+  fill: ghostwhite;
+}
+
+#dateLabel {
+  font-size: 30;
+  font-family: System-Light;
+  text-length: 50;
+  text-anchor: end;
+  x: 96%;
+  y: 20%;
   fill: ghostwhite;
 }
