@@ -31,6 +31,21 @@
             ]}
           />
         </Section>
+        <Section
+          title={<Text bold align="center">HR Color</Text>}>
+          <ColorSelect
+            settingsKey="hrColor"
+            colors={[
+              {color: 'ghostwhite'},
+              {color: 'mediumaquamarine'},
+              {color: 'tomato'},
+              {color: 'darkorange'},
+              {color: 'purple'},
+              {color: 'darkseagreen'},
+              {color: 'lightseagreen'}
+            ]}
+          />
+        </Section>
       </Page>
     );
   }
