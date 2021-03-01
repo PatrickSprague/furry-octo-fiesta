@@ -21,3 +21,13 @@
   y: 20%;
   fill: ghostwhite;
 }
+
+#hrLabel {
+  font-size: 30;
+  font-family: System-Light;
+  text-length: 50;
+  text-anchor: end;
+  x: 96%;
+  y: 80%+15;
+  fill: ghostwhite;
+}
